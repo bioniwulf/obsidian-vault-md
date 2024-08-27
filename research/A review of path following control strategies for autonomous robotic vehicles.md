@@ -34,7 +34,7 @@ link: https://onlinelibrary.wiley.com/doi/full/10.1002/rob.22142
 | $U_d(t)$                                                                                                                                             | positive desired longitudinal speed of the vehicle                                                                         |
 | $u_{\mathcal{P}}$                                                                                                                                    | the speed of the reference point $P$ with respect to $\{\mathcal{I}\}$                                                     |
 | $\boldsymbol{\mathrm{v}}_{\mathcal{P}} \triangleq [u_{\mathcal{P}}, 0]^{\intercal}=\boldsymbol{R}^{\mathcal{P}}_{\mathcal{I}}\dot{\boldsymbol{p_d}}$ | the velocity of reference point $P$ with respect to $\{\mathcal{I}\}$, expressed in $\{\mathcal{P}\}$                      |
-| $\boldsymbol{\mathrm{u}}_{\mathcal{P}} \triangleq [r, \mathrm{v}_\gamma]^{\intercal}$                                                                | the velocity of reference point $P$ with respect to $\{\mathcal{P}\}$ ????                                                 |
+| $\boldsymbol{\mathrm{u}}_{\mathcal{P}} \triangleq [r, \mathrm{v}_\gamma]^{\intercal}$                                                                | the velocity of reference point $P$ with respect to $\{\mathcal{P}\}$ ==????==                                             |
 | $\boldsymbol{\mathrm{w}}=[r,0]^\intercal$                                                                                                            | the angular velocity vector of $\{\mathcal{B}\}$ respect to $\{I\}$ expressed in $\{\mathcal{B}\}$                         |
 | $\boldsymbol{\mathrm{u}}=[u,r]$                                                                                                                      | the vehicle linear and angular velocity in $\{\mathcal{B}\}$                                                               |
 | $\boldsymbol{\mathrm{x}} = \left[ \boldsymbol{e}^\intercal_{\mathcal{B}}, e_\gamma \right]^\intercal \in \mathbb{R}^3$                               | The complete path following error in $\{\mathcal{B}\}$                                                                     |
@@ -43,6 +43,10 @@ link: https://onlinelibrary.wiley.com/doi/full/10.1002/rob.22142
 | $\displaystyle v_d(\gamma,t) \triangleq \frac{1}{\|\boldsymbol{p}'_d(\gamma)\|}U_d(\gamma, t)$                                                       | desired speed profile for $\dot{\gamma}$                                                                                   |
 | $\boldsymbol{R}^{\mathcal{P}}_{\mathcal{I}}$                                                                                                         | Rotation matrix from $\{\mathcal{P}\}$ to $\{\mathcal{I}\}$                                                                |
 | $\boldsymbol{R}^{\mathcal{B}}_{\mathcal{I}}$                                                                                                         | Rotation matrix from $\{\mathcal{B}\}$ to $\{\mathcal{I}\}$                                                                |
+## Article Links
+* [Path Following Algorithm Matlab](https://github.com/hungrepo/path-following-Matlab/tree/master/PF-toolbox)
+* [Path Following Algorithm C++ ROS](https://github.com/dsor-isr/Paper-PathFollowingSurvey)
+* [Modelling video](https://youtu.be/XutfsXijHPE.)
 ## Article Notes
 * there are two frames adopted in the literature to formulate the path following problem, that is, to describe the position error between the vehicle and the path. Namely, the [[Frenet–Serret frame]](F-S) frame ([link](https://sakshik.medium.com/understanding-the-frenet-serret-frame-3b9c730e8b1c)) and the [[Parallel Transport frame]] (P‐T) frame.
 * **(F‐S)** frame is that it is not well‐defined for paths that have a vanishing second derivative (i.e., zero curvature) such as straight lines or nonconvex curves.
@@ -153,14 +157,6 @@ $$
 0 & \epsilon_1
 \end{bmatrix}
 $$
-For this dynamics system control law for $\boldsymbol{\mathrm{u}}$ and $\ddot{\gamma}$ given by
-$$
-\begin{matrix*}[l]
-\boldsymbol{\mathrm{u}}=\bar{\Delta}\left(R^\mathcal{B}_\mathcal{I}(\psi)\boldsymbol{p}'_d(\gamma)\mathrm{v}_d-K_p\boldsymbol{e}_\mathcal{B} \right)\\
-\ddot{\gamma}=-k_\gamma e_\gamma+\boldsymbol{e}^\intercal_\mathcal{B}R^\mathcal{B}_\mathcal{I}(\psi)\boldsymbol{p}'_d(\gamma)+\ddot{\mathrm{v}}_d
-\end{matrix*}
-$$
-render the origin of $\mathrm{\boldsymbol{x}}$ GES (Global Exponential Stability), where $\bar{\Delta}=\Delta^\intercal(\Delta\Delta^\intercal)^{-1}$ , $K_p$ is a positive definite matrix with appropriate dimension, and $k_\gamma>0$.
 ## Methods Overview
 
 | PF methods                                | Drive $\boldsymbol{e}_P$ to zero by | References                                                                                                                                                | External disturbances |
@@ -169,13 +165,13 @@ render the origin of $\mathrm{\boldsymbol{x}}$ GES (Global Exponential Stability
 | [[### Method 2 (Lapierre et al)]]         | $u,r, \dot{\gamma}$                 | Lapierre et al. ([2003](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=1272781))                                                                    |                       |
 | [[### Method 3 (LOS path following)]]     | $u,\psi$                            | Fossen et al. ([2003](https://www.sciencedirect.com/science/article/pii/S1474667017378096), [2015](https://ieeexplore.ieee.org/document/6868251))         | supports              |
 | [[### Method 4 (Breivik & Fossen, 2005)]] | $u,\psi, \dot{\gamma}$              | Breivik and Fossen ([2005](https://ieeexplore.ieee.org/document/1582226))                                                                                 |                       |
-| [[#Method 5 (NMPC)]]                      | $u,r, \dot{\gamma}$                 | Hung et al. ([2020](https://onlinelibrary.wiley.com/doi/full/10.1002/rnc.4896)), Yu et al. ([2015](https://onlinelibrary.wiley.com/doi/10.1002/rnc.3133)) |                       |
+| [[### Method 5 (Hung et al., NMPC)]]      | $u,r, \dot{\gamma}$                 | Hung et al. ([2020](https://onlinelibrary.wiley.com/doi/full/10.1002/rnc.4896)), Yu et al. ([2015](https://onlinelibrary.wiley.com/doi/10.1002/rnc.3133)) |                       |
 **Table. Methods proposed to stabilize $\boldsymbol{e}_{\mathcal{P}}$ to zero
 
-| PF methods        | Drive $\boldsymbol{e}_{\mathcal{B}}$ to zero by | References                                                                   | External disturbances |
-| ----------------- | ----------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
-| Method 6          | $u,r, \ddot{\gamma}$                            | Aguiar & Hespanha ([2007](https://www.mdpi.com/2077-1312/11/10/1874))        | supports              |
-| Method 7$^{NMPC}$ | $u,r, \gamma$                                   | Alessandretti et al., ([2013](https://ieeexplore.ieee.org/document/6669717)) |                       |
+| PF methods                                 | Drive $\boldsymbol{e}_{\mathcal{B}}$ to zero by | References                                                                   | External disturbances |
+| ------------------------------------------ | ----------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
+| [[### Method 6 (Aguiar & Hespanha, 2007)]] | $u,r, \ddot{\gamma}$                            | Aguiar & Hespanha ([2007](https://www.mdpi.com/2077-1312/11/10/1874))        | supports              |
+| [[### Method 7 (Hung et al., 2020, NMPC)]] | $u,r, \dot{\gamma}$                             | Alessandretti et al., ([2013](https://ieeexplore.ieee.org/document/6669717)) |                       |
 **Table. Methods proposed to stabilize $\boldsymbol{e}_{\mathcal{B}}$ to zero
 ## Methods Chronology
 ![[Pasted image 20240823153409.png||1200]]
@@ -338,7 +334,7 @@ where:
 ```
 **Notes**:
 * $e_\mathcal{P}=0$ is UGAS (Uniform Global Asymptotic Stability) in this control method.
-### Method 5 (NMPC)
+### Method 5 (Hung et al., NMPC)
 [[## Methods Overview]]
 **Controlled variables**: $u,r, \dot{\gamma}$
 **Type**: Path frame
@@ -366,3 +362,177 @@ $$
 \mathbb{U}_\mathcal{P} = \{(r,v_\gamma):
 v_{\text{min}} \leq v_\gamma \leq v_{\text{max}}, |r|<r_\text{max}\}
 $$
+
+In this case a finite horizon open loop optimal control problem (FOCP-1) that the MPC solves at every sampling time as follows:
+$$
+\begin{matrix}
+\min{J_\mathcal{P}(\boldsymbol{\mathrm{x}}_\mathcal{P},\bar{\boldsymbol{u}}_\mathcal{P}(\cdot))} \\
+\textbf{subject to} \\
+\dot{\boldsymbol{\mathrm{x}}}_\mathcal{P}(\tau) = \boldsymbol{\mathrm{f}}_\mathcal{P}(\bar{\boldsymbol{\mathrm{x}}}_\mathcal{P}(\tau), \bar{\boldsymbol{\mathrm{u}}}_\mathcal{P}(\tau)), \tau \in [t, t + T_p], \\
+\bar{\boldsymbol{\mathrm{x}}}_\mathcal{P}(\tau) = \boldsymbol{\mathrm{x}}_\mathcal{P}(\tau), \\
+(\bar{\boldsymbol{e}}_\mathcal{P}, \bar{\psi}_e(\tau)) \in \mathbb{E}_\mathcal{P}, \tau \in [t, t + T_p] \\
+\textbf{with} \\
+\displaystyle J_\mathcal{P}(\boldsymbol{\mathrm{x}}_\mathcal{P},\bar{\boldsymbol{u}}_\mathcal{P}(\cdot))
+\triangleq
+\int^{t+T_p}_{t}
+\left\lVert
+\begin{bmatrix}
+	\bar{\boldsymbol{e}}_\mathcal{P}(\tau) \\
+	\bar{\psi}_e(\tau)
+\end{bmatrix}
+\right\lVert_Q
++
+\left\lVert
+\bar{\boldsymbol{u}}_a(\tau)
+\right\lVert_R d\tau
++
+F_\mathcal{P}(\bar{\boldsymbol{e}}_\mathcal{P}(t+T_p), \bar{\psi}_e(t+T_p))
+\end{matrix},
+$$
+where:
+* $Q \in \mathbb{R}^{3\times3}, R \in \mathbb{R}^{2\times2}$ are positive definite matrices,
+* notation $\left\lVert \boldsymbol{\mathrm{x}} \right\lVert = \boldsymbol{\mathrm{x}}^\intercal Q \boldsymbol{\mathrm{x}}$
+* $\bar{\boldsymbol{\mathrm{x}}}_\mathcal{P}(\tau)$ is the predicted trajectory of the state $\boldsymbol{\mathrm{x}}_\mathcal{P}$ computed using the dynamic model
+* $\boldsymbol{u}_a$ is the cost associated with the input that is defined as
+$$
+\boldsymbol{u}_a =
+\begin{bmatrix}
+U_d\cos{\psi_e - \| \boldsymbol{\mathrm{p}}'_d (\gamma) \| v_\gamma} \\
+r - k(\gamma) \| \boldsymbol{\mathrm{p}}'_d (\gamma) \| v_\gamma
+\end{bmatrix}
+$$
+In the MPC scheme, the FOCP‐1 is repeatedly solved at every discrete sampling instant $t_i=iT_s, i \in \mathbb{N}_+$ where $T_s$ is sampling interval. Let $\bar{\mathrm{\boldsymbol{u}}}^*_\mathcal{P}, \tau \in [t, t + T_p]$ be the optimal solution of the FOCP-1. Then the **MPC control law** $\boldsymbol{u}_\mathcal{P}(\cdot)$ is defined by
+$$
+\boldsymbol{u}_\mathcal{P}(t) = \bar{\mathrm{\boldsymbol{u}}}^*_\mathcal{P}, \tau \in [t_i, t_i + T_s]
+$$
+```pseudo
+    \begin{algorithm}
+    \caption{Method 5}
+	    \begin{algorithmic}
+		    \State Initialize $\gamma(0)$
+		    \State For every time $t$ do:
+			\Procedure{PFController}{}
+				\State Compute the position errors $s_1, y_1, \psi_e$
+				\State the FOCP and apply the MPC contol Law to obtain optimal $r, v_\gamma$
+				\State For inner‐loop controllers:
+				\State - Compute the desired vehicle's forward speed $u$
+				\State - The optimal $r$ is used as the desired vehicle's heading rate
+				\State Iterate $\gamma$ with the optimal input $v_\gamma$ to update $\gamma$
+			\EndProcedure
+	    \end{algorithmic}
+    \end{algorithm}
+```
+**Notes**:
+* While using the terminal constraints and the contractive constraint are appealing from a theoretical standpoint, for the simplicity in design and implementation in practice they are normally excluded from the finite optimal control problem.
+### Method 6 (Aguiar & Hespanha, 2007)
+[[## Methods Overview]]
+**Controlled variables**: $u,r, \ddot{\gamma}$
+**Type**: Body frame
+
+For body frame the control dynamics system control law for $\boldsymbol{\mathrm{u}}=[u,r]$ and $\ddot{\gamma}$ given by
+$$
+\begin{matrix*}[l]
+\boldsymbol{\mathrm{u}}=\bar{\Delta}\left(R^\mathcal{B}_\mathcal{I}(\psi)\boldsymbol{p}'_d(\gamma)\mathrm{v}_d-K_p\boldsymbol{e}_\mathcal{B} \right)\\
+\ddot{\gamma}=-k_\gamma e_\gamma+\boldsymbol{e}^\intercal_\mathcal{B}R^\mathcal{B}_\mathcal{I}(\psi)\boldsymbol{p}'_d(\gamma)+\ddot{\mathrm{v}}_d
+\end{matrix*}
+$$
+render the origin of $\mathrm{\boldsymbol{x}}$ GES (Global Exponential Stability), where $\bar{\Delta}=\Delta^\intercal(\Delta\Delta^\intercal)^{-1}$ , $K_p$ is a positive definite matrix with appropriate dimension, and $k_\gamma>0$.
+
+```pseudo
+    \begin{algorithm}
+    \caption{Method 6}
+	    \begin{algorithmic}
+		    \State Initialize $\gamma(0), \dot{\gamma(0)}$
+		    \State For every sampling interval:
+			\Procedure{PFController}{}
+				\State Compute the position errors $\boldsymbol{e}_\mathcal{B}$ and tracking the error $e_\gamma$
+				\State For inner‐loop controllers:
+				\State - Compute the desired vehicle's forward speed  and yaw rate $\boldsymbol{\mathrm{u}}$
+				\State - Compute the desired vehicle's yaw $\psi$
+				\State Compute $\ddot{\gamma}$, integrate, and update $\gamma$
+			\EndProcedure
+	    \end{algorithmic}
+    \end{algorithm}
+```
+**Notes**:
+* We can control the evolution of the "reference point" by assigning $\dot{\gamma}=v_d$ instead of using the control law for $\ddot\gamma{}$. However, it  implies that the “reference point” moves without taking into consideration the state of the vehicle.
+
+### Method 7 (Hung et al., 2020, NMPC)
+[[## Methods Overview]]
+**Controlled variables**: $u,r, \dot{\gamma}$
+**Type**: Body frame
+
+The state $\boldsymbol{\mathrm{x}}_\mathcal{B}$ and input $\boldsymbol{\mathrm{u}}_\mathcal{B}$ of the complete path following system are defined as follows:
+$$
+\begin{matrix*}[l]
+\boldsymbol{\mathrm{x}}_\mathcal{B} \triangleq \left[ \boldsymbol{e}^\intercal_\mathcal{B}, \psi,\gamma \right]^\intercal \in \mathbb{R}^4 \\
+\boldsymbol{\mathrm{u}}_\mathcal{B} \triangleq [u,r,v_\gamma]^\intercal \in \mathbb{R}^3
+\end{matrix*}
+$$
+The dynamics of the complete path following state can be obtained as
+$$
+\dot{\boldsymbol{\mathrm{x}}}_\mathcal{B} =
+\boldsymbol{\mathrm{f_\mathcal{B}}}(\boldsymbol{\mathrm{x}}_\mathcal{B}, \boldsymbol{\mathrm{u}}_\mathcal{B})
+\triangleq
+\begin{bmatrix}
+-S(\boldsymbol{w})\boldsymbol{e}_\mathcal{B} + \Delta \boldsymbol{u} - R^{\mathcal{B}}_{\mathcal{I}}(\psi)\boldsymbol{p}'_d(\gamma)v_\gamma \\
+r \\
+v_\gamma
+\end{bmatrix}
+$$The objective of the NMPC scheme is to find an optimal control strategy for $\boldsymbol{\mathrm{u}}_\mathcal{B}$ to drive the position error $\boldsymbol{e}_\mathcal{B}$ and the speed tracking error $(e_\gamma - v_d)$ to zero.
+In this case a finite horizon open loop optimal control problem (FOCP-2) that the MPC solves at every sampling time as follows:
+$$
+\begin{matrix}
+\min{J_\mathcal{B}(\boldsymbol{\mathrm{x}}_\mathcal{B},\bar{\boldsymbol{u}}_\mathcal{B}(\cdot))} \\
+\textbf{subject to} \\
+\dot{\boldsymbol{\mathrm{x}}}_\mathcal{B}(\tau) = \boldsymbol{\mathrm{f}}_\mathcal{B}(\bar{\boldsymbol{\mathrm{x}}}_\mathcal{B}(\tau), \bar{\boldsymbol{\mathrm{u}}}_\mathcal{B}(\tau)), \tau \in [t, t + T_p], \\
+\bar{\boldsymbol{\mathrm{x}}}_\mathcal{B}(\tau) = \boldsymbol{\mathrm{x}}_\mathcal{B}(\tau), \\
+\bar{\boldsymbol{\mathrm{u}}}_\mathcal{B}(\tau) \in \mathbb{U}_\mathcal{B}, \tau \in [t, t + T_p], \\
+\bar{\boldsymbol{\mathrm{e}}}_\mathcal{B}(\tau) \in \mathbb{E}_\mathcal{B}, \tau \in [t, t + T_p] \\
+\textbf{with} \\
+\displaystyle J_\mathcal{B}(\boldsymbol{\mathrm{x}}_\mathcal{B},\bar{\boldsymbol{u}}_\mathcal{B}(\cdot))
+\triangleq
+\int^{t+T_p}_{t}
+\left\lVert
+\bar{\boldsymbol{e}}_\mathcal{B}(\tau)
+\right\lVert_Q
++
+\left\lVert
+\bar{\boldsymbol{u}}_b(\tau)
+\right\lVert_R
++
+\left\lVert
+v_\gamma(\tau) - v_d(\tau)
+\right\lVert_O d\tau
++
+F_\mathcal{B}(\bar{\boldsymbol{e}}_\mathcal{B}(t+T_p))
+\end{matrix}
+$$
+where:
+* $Q, R, O$  are positive definite matrices,
+* $\boldsymbol{u}_b$ is the cost associated with the input that is defined as
+*$$
+\boldsymbol{u}_b = \Delta\boldsymbol{u}-R^{\mathcal{B}}_{\mathcal{I}}(\psi)\boldsymbol{p}'_d(\gamma)v_\gamma
+$$In the MPC scheme, the FOCP‐2 is repeatedly solved at every discrete sampling instant $t_i=iT_s, i \in \mathbb{N}_+$ where $T_s$ is sampling interval. Let $\bar{\mathrm{\boldsymbol{u}}}^*_\mathcal{B}, \tau \in [t, t + T_p]$ be the optimal solution of the FOCP-1. Then the **MPC control law** $\boldsymbol{u}_\mathcal{B}(\cdot)$ is defined by
+$$
+\boldsymbol{u}_\mathcal{B}(t) = \bar{\mathrm{\boldsymbol{u}}}^*_\mathcal{B}, \tau \in [t_i, t_i + T_s]
+$$
+```pseudo
+    \begin{algorithm}
+    \caption{Method 7}
+	    \begin{algorithmic}
+		    \State Initialize $\gamma(0)$
+		    \State For every time $t$ do:
+			\Procedure{PFController}{}
+				\State Compute the position errors $s_1, y_1, \psi_e$
+				\State Solve the FOCP‐2 and apply the NMPC control law to obtain optimal values of $u, r, v_\gamma$
+				\State For inner‐loop controllers:
+				\State - the optimal $u$ is used as the desired vehicle's forward speed.
+				\State - the optimal $r$ is used as the desired vehicle's heading rate.
+				\State Iterate $\gamma$ with the optimal input $v_\gamma$ to update $\gamma$
+			\EndProcedure
+	    \end{algorithmic}
+    \end{algorithm}
+```
+**Notes**:
+* For simplicity of design and implementation we can exclude the terminal constraints above from the finite optimal control problem.
