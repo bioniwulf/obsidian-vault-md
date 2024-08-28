@@ -14,7 +14,7 @@ link: https://onlinelibrary.wiley.com/doi/full/10.1002/rob.22142
 | $\{\mathcal{B}\} = \{x_b, y_b\}$                                                                                                                     | vehicle body fixed frame with $Q$ in the centre                                                                            |
 | $\{\mathcal{P}\} = \{x_p, y_p\}$                                                                                                                     | path frame                                                                                                                 |
 | $\gamma$                                                                                                                                             | the scalar parameter for description of the path (e.g., arc‐length of the path)                                            |
-| $\mathrm{v}_\gamma=\dot{\gamma}$                                                                                                                     | the velocity of $\gamma$                                                                                                   |
+| $\mathrm{v}_\gamma=\dot{\gamma}$                                                                                                                     | the velocity of $\gamma$ ==????==                                                                                          |
 | $\displaystyle \mathrm{v}_d \triangleq \frac{1}{\|\boldsymbol{p}'_d(\gamma)\|}U_d(\gamma, t)$                                                        | the desired speed profile for $\dot{\gamma}$                                                                               |
 | $\boldsymbol{p}_d(\gamma)=[x_d(\gamma), y_d(\gamma)]^⊤$                                                                                              | desired path points in $\{\mathcal{I}\}$ parameterised by $\gamma$                                                         |
 | $\boldsymbol{p} = [x, y]^{\intercal}$                                                                                                                | vehicle position in $\{\mathcal{I}\}$                                                                                      |
@@ -32,21 +32,28 @@ link: https://onlinelibrary.wiley.com/doi/full/10.1002/rob.22142
 | $\displaystyle \boldsymbol{t}(\gamma) = \frac{\boldsymbol p'_d(\gamma)}{\|\boldsymbol p'_d(\gamma\|}$                                                | unit tangent vector respectively to the path                                                                               |
 | $\displaystyle \boldsymbol{n}(\gamma) = \frac{\boldsymbol t'(\gamma)}{\|\boldsymbol t'(\gamma\|}$                                                    | principle unit normal respectively to the path                                                                             |
 | $U_d(t)$                                                                                                                                             | positive desired longitudinal speed of the vehicle                                                                         |
-| $u_{\mathcal{P}}$                                                                                                                                    | the speed of the reference point $P$ with respect to $\{\mathcal{I}\}$                                                     |
-| $\boldsymbol{\mathrm{v}}_{\mathcal{P}} \triangleq [u_{\mathcal{P}}, 0]^{\intercal}=\boldsymbol{R}^{\mathcal{P}}_{\mathcal{I}}\dot{\boldsymbol{p_d}}$ | the velocity of reference point $P$ with respect to $\{\mathcal{I}\}$, expressed in $\{\mathcal{P}\}$                      |
+| $u_{\mathcal{P}} = \dot{\boldsymbol{p_d}}= \|\boldsymbol{p}'_d(\gamma)\|\dot{\gamma}$                                                                | the velocity of reference point $P$ with respect to the $\{\mathcal{I}\}$ ==Longitudal?==                                  |
+| $\boldsymbol{w}_\mathcal{P} = [r_\mathcal{P}, 0]^\intercal$                                                                                          | the angular velocity vector of $\{ \mathcal{P} \}$ respect to $\{ \mathcal{I} \}$ expressed in $\{ \mathcal{P} \}$         |
+| $\boldsymbol{\mathrm{v}}_{\mathcal{P}} \triangleq [u_{\mathcal{P}}, 0]^{\intercal}=\boldsymbol{R}^{\mathcal{P}}_{\mathcal{I}}\dot{\boldsymbol{p_d}}$ | the velocity of reference point $P$ with respect to $\{\mathcal{I}\}$, expressed in $\{\mathcal{P}\}$ ==???==              |
 | $\boldsymbol{\mathrm{u}}_{\mathcal{P}} \triangleq [r, \mathrm{v}_\gamma]^{\intercal}$                                                                | the velocity of reference point $P$ with respect to $\{\mathcal{P}\}$ ==????==                                             |
 | $\boldsymbol{\mathrm{w}}=[r,0]^\intercal$                                                                                                            | the angular velocity vector of $\{\mathcal{B}\}$ respect to $\{I\}$ expressed in $\{\mathcal{B}\}$                         |
 | $\boldsymbol{\mathrm{u}}=[u,r]$                                                                                                                      | the vehicle linear and angular velocity in $\{\mathcal{B}\}$                                                               |
 | $\boldsymbol{\mathrm{x}} = \left[ \boldsymbol{e}^\intercal_{\mathcal{B}}, e_\gamma \right]^\intercal \in \mathbb{R}^3$                               | The complete path following error in $\{\mathcal{B}\}$                                                                     |
-| $u_{\mathcal{P}} = \dot{\boldsymbol{p_d}}= \|\boldsymbol{p}'_d(\gamma)\|\dot{\gamma}$                                                                | the velocity of reference point $P$ with respect to the $\{\mathcal{I}\}$                                                  |
-| $r_{\mathcal{P}}=k(\gamma)u_{\mathcal{P}}$                                                                                                           | the angular velocity vector of $\{\mathcal{P}\}$ respect to $\{I\}$ expressed in $\{\mathcal{P}\}$                         |
+| $r_{\mathcal{P}}=\dot{\psi}_{\mathcal{P}}=k(\gamma)u_{\mathcal{P}}$                                                                                  | the angular velocity vector of $\{\mathcal{P}\}$ respect to $\{I\}$ expressed in $\{\mathcal{P}\}$                         |
 | $\displaystyle v_d(\gamma,t) \triangleq \frac{1}{\|\boldsymbol{p}'_d(\gamma)\|}U_d(\gamma, t)$                                                       | desired speed profile for $\dot{\gamma}$                                                                                   |
-| $\boldsymbol{R}^{\mathcal{P}}_{\mathcal{I}}$                                                                                                         | Rotation matrix from $\{\mathcal{P}\}$ to $\{\mathcal{I}\}$                                                                |
-| $\boldsymbol{R}^{\mathcal{B}}_{\mathcal{I}}$                                                                                                         | Rotation matrix from $\{\mathcal{B}\}$ to $\{\mathcal{I}\}$                                                                |
+| $R^{\mathcal{P}}_{\mathcal{I}}$                                                                                                                      | Rotation matrix from $\{\mathcal{P}\}$ to $\{\mathcal{I}\}$                                                                |
+| $R^{\mathcal{B}}_{\mathcal{I}}$                                                                                                                      | Rotation matrix from $\{\mathcal{B}\}$ to $\{\mathcal{I}\}$                                                                |
 ## Article Links
 * [Path Following Algorithm Matlab](https://github.com/hungrepo/path-following-Matlab/tree/master/PF-toolbox)
 * [Path Following Algorithm C++ ROS](https://github.com/dsor-isr/Paper-PathFollowingSurvey)
 * [Modelling video](https://youtu.be/XutfsXijHPE.)
+## Article Questions
+* (page 7, eq. 11) Why the norm is placed in the equation? (chain rule for the derivative of the composition of two differentiable functions)
+* (page 7, eq. 13) What is the physical meaning of desired speed profile variable $v_d(\gamma, t)$? Why is it obtained by dividing by the norm of derivative function of $\boldsymbol{p}(\gamma)$ with respect to gamma?
+* (page 8, eq. 18) I got intuitively this function, but how it was obtained?
+* (page 10, eq 30) Was this function was obtained somehow or just defined and proved that this is the solution?
+* (page 12, eq 38) What is the point to use this equation instead of eq 35? Is convergence waster or is it faster to calculate?
+* (page 13, eq 39) What is $v_\gamma$ ?
 ## Article Notes
 * there are two frames adopted in the literature to formulate the path following problem, that is, to describe the position error between the vehicle and the path. Namely, the [[Frenet–Serret frame]](F-S) frame ([link](https://sakshik.medium.com/understanding-the-frenet-serret-frame-3b9c730e8b1c)) and the [[Parallel Transport frame]] (P‐T) frame.
 * **(F‐S)** frame is that it is not well‐defined for paths that have a vanishing second derivative (i.e., zero curvature) such as straight lines or nonconvex curves.
@@ -429,7 +436,7 @@ $$
 **Controlled variables**: $u,r, \ddot{\gamma}$
 **Type**: Body frame
 
-For body frame the control dynamics system control law for $\boldsymbol{\mathrm{u}}=[u,r]$ and $\ddot{\gamma}$ given by
+For body frame the control dynamics system control law for $\boldsymbol{\mathrm{u}}=[u,r]$ and $\ddot{\gamma}$ is follows
 $$
 \begin{matrix*}[l]
 \boldsymbol{\mathrm{u}}=\bar{\Delta}\left(R^\mathcal{B}_\mathcal{I}(\psi)\boldsymbol{p}'_d(\gamma)\mathrm{v}_d-K_p\boldsymbol{e}_\mathcal{B} \right)\\
