@@ -1,7 +1,9 @@
 ---
 date: 2024-08-25
 tags:
-  - details
+  - parallelTransport
+  - theory
+  - pathFollowing
 aliases:
   - Parallel Transport frame, P-T frame
 ---

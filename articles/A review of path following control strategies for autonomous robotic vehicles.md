@@ -2,8 +2,14 @@
 date: 2024-08-20
 tags:
   - article
+  - AUV
+  - pathFollowing
+  - overview
+  - Frenet-Serret
+  - parallelTransport
 title: "A review of path following control strategies for autonomous robotic vehicles: Theory, simulations, and experiments"
 link: https://onlinelibrary.wiley.com/doi/full/10.1002/rob.22142
+aliases:
 ---
 ##  Article Notations
 
@@ -34,7 +40,7 @@ link: https://onlinelibrary.wiley.com/doi/full/10.1002/rob.22142
 | $U_d(t)$                                                                                                                                             | positive desired longitudinal speed of the vehicle                                                                         |
 | $u_{\mathcal{P}} = \dot{\boldsymbol{p_d}}= \|\boldsymbol{p}'_d(\gamma)\|\dot{\gamma}$                                                                | the velocity of reference point $P$ with respect to the $\{\mathcal{I}\}$ ==Longitudal?==                                  |
 | $\boldsymbol{w}_\mathcal{P} = [r_\mathcal{P}, 0]^\intercal$                                                                                          | the angular velocity vector of $\{ \mathcal{P} \}$ respect to $\{ \mathcal{I} \}$ expressed in $\{ \mathcal{P} \}$         |
-| $\boldsymbol{\mathrm{v}}_{\mathcal{P}} \triangleq [u_{\mathcal{P}}, 0]^{\intercal}=\boldsymbol{R}^{\mathcal{P}}_{\mathcal{I}}\dot{\boldsymbol{p_d}}$ | the velocity of reference point $P$ with respect to $\{\mathcal{I}\}$, expressed in $\{\mathcal{P}\}$ ==???==              |
+| $\boldsymbol{\mathrm{v}}_{\mathcal{P}} \triangleq [u_{\mathcal{P}}, 0]^{\intercal}=\boldsymbol{R}^{\mathcal{P}}_{\mathcal{I}}\dot{\boldsymbol{p_d}}$ | the velocity of $\{ \mathcal{P} \}$ with respect to $\{\mathcal{I}\}$, expressed in $\{\mathcal{P}\}$                      |
 | $\boldsymbol{\mathrm{u}}_{\mathcal{P}} \triangleq [r, \mathrm{v}_\gamma]^{\intercal}$                                                                | the velocity of reference point $P$ with respect to $\{\mathcal{P}\}$ ==????==                                             |
 | $\boldsymbol{\mathrm{w}}=[r,0]^\intercal$                                                                                                            | the angular velocity vector of $\{\mathcal{B}\}$ respect to $\{I\}$ expressed in $\{\mathcal{B}\}$                         |
 | $\boldsymbol{\mathrm{u}}=[u,r]$                                                                                                                      | the vehicle linear and angular velocity in $\{\mathcal{B}\}$                                                               |
@@ -347,9 +353,12 @@ where:
 **Type**: Path frame
 
 To deal with the vehicle's constraints explicitly, the optimization based control control strategy called model predictive control (MPC) can be used.
-Fist, it's necessary to define control state for MPC:
+Fist, it's necessary to define the control state and the control input for MPC:
 $$
-\boldsymbol{\mathrm{x}} = \left[ \boldsymbol{e}^\intercal_{\mathcal{P}}, \psi_e, \gamma \right]^\intercal \in \mathbb{R}^4
+\begin{matrix*}[l]
+\boldsymbol{\mathrm{x}}_\mathcal{P} = \left[ \boldsymbol{e}^\intercal_{\mathcal{P}}, \psi_e, \gamma \right]^\intercal \in \mathbb{R}^4, \\
+\boldsymbol{\mathrm{u}}_\mathcal{P} \triangleq [r, v_\gamma] \in \mathbb{R}^2
+\end{matrix*}
 $$
 
 The dynamics of the system can be rewritten as
@@ -364,7 +373,7 @@ r - k(\gamma)\|\boldsymbol{p}'(\gamma)\|v_\gamma \\
 v_\gamma
 \end{bmatrix}
 $$
-where $\boldsymbol{\mathrm{u}}_\mathcal{P} \triangleq [r, v_\gamma]$ is the input of the system , which is constrained in the set $\mathbb{U}_\mathcal{P}$ given by:
+where $\boldsymbol{\mathrm{u}}_\mathcal{P}$ is constrained in the set $\mathbb{U}_\mathcal{P}$ given by:
 $$
 \mathbb{U}_\mathcal{P} = \{(r,v_\gamma):
 v_{\text{min}} \leq v_\gamma \leq v_{\text{max}}, |r|<r_\text{max}\}
@@ -543,3 +552,11 @@ $$
 ```
 **Notes**:
 * For simplicity of design and implementation we can exclude the terminal constraints above from the finite optimal control problem.
+
+## Sources
+* [[Cooperative path following of constrained autonomous vehicles with model predictive control and event-triggered communications]]
+* [[Input-Constrained Path Following for Autonomous Marine Vehicles with a Global Region of Attraction]]
+* [[Line‐of‐sight path following of underactuated marine craft]]
+* [[home/bioniwulf/research/obsidian-vault/articles/Nonlinear Model Predictive Control for Path Following Problems|Nonlinear Model Predictive Control for Path Following Problems]]
+* [[Nonlinear path following with applications to the control of autonomous underwater vehicles]]
+* 

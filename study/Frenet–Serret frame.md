@@ -1,7 +1,8 @@
 ---
 date: 2024-08-25
 tags:
-  - details
+  - theory
+  - Frenet-Serret
 aliases:
   - Frenet–Serret frame
   - F-S frame
