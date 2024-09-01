@@ -5,6 +5,9 @@ tags:
   - notation
 ---
 # SNAME(1950) Notation
+
+[[Handbook of Marine Craft Hydrodynamics and Motion Control]], Chapter 2.1
+
 Source: [link](https://books.google.pt/books/about/Nomenclature_for_Treating_the_Motion_of.html?id=VqNFGwAACAAJ&redir_esc=y)
 > [!question]- Bibtex source
 >@book{society1950nomenclature,

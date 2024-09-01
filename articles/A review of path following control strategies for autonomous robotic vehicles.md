@@ -129,7 +129,7 @@ u_\mathcal{P} \\
 \dot{\psi}_e = r - k(\gamma) u_\mathcal{P}
 \end{matrix*}
 $$
-where $\boldsymbol{S}(\boldsymbol{w_\mathcal{P}})$ is skew  symmetric matrix parameterized by $\boldsymbol{w}_\mathcal{P}=[r_\mathcal{P},0]$:
+where $\boldsymbol{S}(\boldsymbol{w_\mathcal{P}})$ is [[Skew-symmetric matrix]] parameterized by $\boldsymbol{w}_\mathcal{P}=[r_\mathcal{P},0]$:
 $$
 \boldsymbol{S}(\boldsymbol{w_\mathcal{P}})=
 \begin{bmatrix}
@@ -284,7 +284,7 @@ where is $k_3>0$ is the additional tuning parameter.
 **Controlled variables**: $u,\psi$
 **Type**: Path frame
 The LOS method is similar to [[#Method 1 (Micaelli and Samson)]] in the sense that the ''reference point" is chosen as the orthogonal projection of the vehicle onto the path. Thus, the along track‐error $s_1(t) = 0$ for all $t$ . However, it is different in that it derives a control law for the vehicle's heading $\psi$  to achieve path following, instead of the heading rate $r$.
-![[Pasted image 20240826180939.png]]
+![[LOS schema.png]]
 Control law for LOS method:
 $$
 \begin{matrix*}[l]

@@ -5,6 +5,7 @@ tags:
   - ReferenceFrame
 ---
 # Reference Frames
+[[Handbook of Marine Craft Hydrodynamics and Motion Control]], Chapter 2.1
 
 ### Earth-Centered Reference Frames
 **ECI:** The Earth-centered inertial (**ECI**) frame $\{i\}=(x_i, y_i, z_i)$ is an inertial frame for terrestrial navigation, that is a non accelerating reference frame in which Newton’s laws of motion apply. This includes inertial navigation systems. The origin of $\{i\}$ is located at the center $O_i$ of the Earth with axes as shown in Figure.

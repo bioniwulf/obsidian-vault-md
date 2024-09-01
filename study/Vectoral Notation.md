@@ -3,8 +3,11 @@ date: 2024-09-01
 tags:
   - theory
   - notation
+  - vector
 ---
 # 6DOF Vectoral Notation
+
+[[Handbook of Marine Craft Hydrodynamics and Motion Control]], Chapter 2.1
 
 We will use the notation $\vec{u}$ to refer to a **coordinate free** vector, that is a **directed line segment**. When a
 vector is described relative to a coordinate system $\{n\}$, the following notation will be used:

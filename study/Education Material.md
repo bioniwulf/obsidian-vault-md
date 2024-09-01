@@ -11,7 +11,7 @@ Source: [Hung Nguyen](https://nt-hung.github.io/books/)
 - Strang, G. (2022). **Introduction to linear algebra**. Wellesley-Cambridge Press. ([link](https://students.aiu.edu/submissions/profiles/resources/onlineBook/Y5B7M4_Introduction_to_Linear_Algebra-_Fourth_Edition.pdf))
 - Boyd, S., & Vandenberghe, L. (2004). **Convex optimization**. Cambridge university press. ([link](https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf))
 ## Control theory
-![[Control_Map_ver5.png]]
+![[Control Theory Map.png]]
 ### Books
 Source: [Hung Nguyen](https://nt-hung.github.io/books/), [reddit discussion](https://www.reddit.com/r/ControlTheory/wiki/bookssnc/), [robocademy](https://robocademy.com/2020/04/21/top-10-robotics-books/)
 - Veness. T (2024). **Controls Engineering in the FIRST Robotics Competition**.  ([[Controls Engineering in the FIRST Robotics Competition|internal link]], [link](https://controls-in-frc.link/), [source](https://github.com/calcmogul/controls-engineering-in-frc))
@@ -43,7 +43,7 @@ Source: [reddit discussion](https://www.reddit.com/r/ControlTheory/wiki/bookssnc
 ## Underwater Robotics
 ### Books
 * Fossen, T. I. (1994) **Guidance and Control of Ocean Vehicles**. Wiley ([link](https://www.amazon.com/Guidance-Control-Ocean-Vehicles-Fossen/dp/0471941131))
-* Fossen, T. I. (2011). **Handbook of Marine Craft Hydrodynamics and Motion Control**. Sussex/John Willy & Sons Ltd. ([link](https://onlinelibrary.wiley.com/doi/book/10.1002/9781119994138), [additional data](https://github.com/cybergalactic/FossenHandbook))
+* Fossen, T. I. (2011). **Handbook of Marine Craft Hydrodynamics and Motion Control**. Sussex/John Willy & Sons Ltd. ([[Handbook of Marine Craft Hydrodynamics and Motion Control | internal link]], [external link](https://onlinelibrary.wiley.com/doi/book/10.1002/9781119994138), [additional data](https://github.com/cybergalactic/FossenHandbook))
 * Antonelli, G. (2018). **Underwater Robots**. Springer. ([link](https://link.springer.com/book/10.1007/978-3-319-77899-0))
 * Roberts, G. N., & Sutton, R. (Eds.). (2006). [[Advances in unmanned marine vehicles]] (Vol. 69). Iet. ([link](https://digital-library.theiet.org/content/books/ce/pbce069e))
 * Søreide, F. (2011). **Ships from the depths: deepwater archaeology**. Texas A&M University Press. ([link](https://www.tamupress.com/book/9781603442183/ships-from-the-depths/))
