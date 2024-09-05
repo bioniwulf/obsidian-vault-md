@@ -52,3 +52,6 @@ In path following, the point $P$ on the path plays the role of a "reference poin
 At $P$, there are two frames adopted in the literature to formulate the path following problem, that is, to describe the position error between the vehicle and the path. Namely, the [[Frenet–Serret frame]] and the [[Parallel Transport frame]].
 ## Path Following Algorithms
 See [[Path Following Algorithms]]
+
+### Notes
+Path following is in **striking contrast** with trajectory tracking, where the reference for the vehicle motion is given explicitly in terms of ”space versus time” coordinates. This strategy is seldom pursued in practice, for it may lead to situations where, by requesting that a vehicle track a desired inertial trajectory, the required speed with respect to the water may either be too small (leading to the loss of surface control authority) or too high (exceeding the capability of the propulsion systems installed on board). [[Marine Vehicle Path Following Using Inner-Outer Loop Control]]
