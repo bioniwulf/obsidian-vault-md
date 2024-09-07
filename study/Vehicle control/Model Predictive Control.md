@@ -70,7 +70,7 @@ The cost J is not explicitly a function of time, so the desired monotonically de
 A [[Lyapunov Function]] function is a continuously differentiable scalar function $V(\boldsymbol{x}): \mathbb{R}^n \rightarrow \mathbb{R}$  with $V(0)=0$. It is always positive and does not increase over time:
 * $V(\boldsymbol{x}) = 0, \forall \boldsymbol{x} \neq 0$
 * $\dot{V}(\boldsymbol{x}) \leq 0, \forall \boldsymbol{x} \neq 0$
-The [[Lyapunov Theorem]] essentially defines a prototypical function resulting in a bounded system state over time. Thus, the state of the art for stability schemes for (non-linear) MPC is to define the cost function in such a way that the optimal cost behaves as a [[Lyapunov Function]] - or to prove this to be the case respectively. For this purpose, the optimization problem is extended by additional cost terms or constraints.
+The [[Lyapunov Theorems]] essentially defines a prototypical function resulting in a bounded system state over time. Thus, the state of the art for stability schemes for (non-linear) MPC is to define the cost function in such a way that the optimal cost behaves as a [[Lyapunov Function]] - or to prove this to be the case respectively. For this purpose, the optimization problem is extended by additional cost terms or constraints.
 **One approach** to make the optimal cost $J^0$ behave like a [[Lyapunov Function]] is to introduce a terminal cost $J(\boldsymbol{k} + N_2)$. This nullifies the advantage of an infinite horizon, since the cost stays the same until infinity $J(\boldsymbol{k} + N_2) \approx J(\infty)$. **Whereby**, more constraints to guarantee stability of the controller may again cause feasibility problems of the optimization—especially for short prediction horizons. **Therefore**, it is common practice to constraint a terminal region instead of, e.g. a zero terminal constraint $\| \boldsymbol{x}(\boldsymbol{k} + N_2) \| = 0$.
 
 **The most common stability approach**, which avoids a [[Lyapunov Function]], is to introduce so-called “**contraction constraints**” ensuring that (usually the euclidean norm of) the state vector is decreasing over time:
@@ -80,12 +80,18 @@ $$
 ## Main advantages
 * The method can explicitly consider control and controllable system constraints. It is one of the few control methods that directly considers constraints.
 * The MPC controller achieves optimal control.
+* It can handle MIMO systems.
+* Preview capability
 
 ## Main Disadvantages
 * Necessary to build controllable object model (linear or nonlinear).
 * Calculation complexity (in 20-50 times slower in comparison with PID and others).
 * Software Requirement complexity. Mostly it's necessary to add 3rd-party libraries for solving optimization problem.
-
+## Subtypes
+* Linear time-invariant MPC (**Model** is linear, **Constraints** is linear, **Coast** is quadratic)
+* Adaptive MPC (**Model** is non linear, but could be linearized, **Constraints** is linear, **Coast** is quadratic)
+* Gain-Scheduled MPC (same as Adaptive MPC, but states are different through different operating conditions)
+* Nonlinear MPC (Model is non-linear and could not be linearized)
 ## Study Materials
 * [Youtube. Understanding Model Predictive Control](https://www.youtube.com/playlist?list=PLn8PRpmsu08ozoeoXgxPSBKLyd4YEHww8)
 * [Youtube. Model Predictive Control - Part 1: Introduction to MPC (Lasse Peters)](https://www.youtube.com/watch?v=XaD8Lngfkzk)
