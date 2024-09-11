@@ -3,6 +3,7 @@ date: 2024-09-01
 tags:
   - theory
   - kinematics
+notation: "[[SNAME Notation]]"
 ---
 # Vehicle Kinematics
 [[Handbook of Marine Craft Hydrodynamics and Motion Control]], Chapter 2.1

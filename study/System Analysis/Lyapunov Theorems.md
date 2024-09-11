@@ -5,6 +5,10 @@ a typical Lyapunov theorem has the form:
 * **THEN**, trajectories of system satisfy some property
 if such a function $V$ exists we call it a **Lyapunov function** (that proves the property holds for the trajectories).
 Lyapunov function $V$ can be thought of as generalized energy function for system.
+
+**Basically** Liapunov’s second method is a generalization of the physical principles that for a conservative system: (1) a rest position is stable if the potential energy is local minimum, otherwise it is unstable, and (2) the total energy is a constant during any motion.
+
+Without loosing generality we will consider that equilibrium point of the function located in the center ($x=0$), if not we can change $x \rightarrow x'$ that satisfies this assumption. q
 ## A Lyapunov Boundedness Theorem
 **IF** there is a function $V$ that satisfies
 * all sublevel sets of $V$ are bounded
@@ -29,3 +33,18 @@ $$
 ||x(t)|| \leq Me^{-\alpha t/2}||x(0)||
 $$
 This called global exponential stability (G.E.S.)
+## Finding Lyapunov functions
+* there are many different types of Lyapunov theorems
+* the key in all cases is to find a Lyapunov function and verify that it has the required properties
+* there are several approaches to finding Lyapunov functions and verifying the properties
+
+One common approach:
+* decide form of Lyapunov function (e.g., quadratic), parametrized by some parameters (called a Lyapunov function candidate)
+* try to find values of parameters so that the required hypotheses hold
+
+Other sources of Lyapunov functions:
+ * value function of a related optimal control problem
+ * linear-quadratic Lyapunov theory
+ * computational methods
+ * converse Lyapunov theorems
+ * graphical methods

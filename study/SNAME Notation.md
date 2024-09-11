@@ -7,7 +7,6 @@ tags:
 # SNAME(1950) Notation
 
 [[Handbook of Marine Craft Hydrodynamics and Motion Control]], Chapter 2.1
-
 Source: [link](https://books.google.pt/books/about/Nomenclature_for_Treating_the_Motion_of.html?id=VqNFGwAACAAJ&redir_esc=y)
 > [!question]- Bibtex source
 >@book{society1950nomenclature,
@@ -29,4 +28,8 @@ Source: [link](https://books.google.pt/books/about/Nomenclature_for_Treating_the
 | 6   | rotation about the $z$ axis (yaw)         | $N$                | $r$                           | $\psi$                     |
 Check [[Vectoral Notation]]
 
-![[Pasted image 20240829111937.png]]
+## Hydrodynamic derivatives
+The notation for the hydrodynamic derivatives could be presented the following way. For instance the hydrodynamic added mass force $Y$ along the $y$ axis due to an acceleration $\dot{u}$ in the $x$ direction is written as
+$$
+Y = -Y_\dot{u}\dot{u}, Y_\dot{u}:=\frac{\partial{Y}}{\partial{\dot{u}}}
+$$
